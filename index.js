@@ -3,7 +3,7 @@ var posts = require('./routes/Post.js');
 var cors = require('cors');
 var app = express();
 
-app.set('port', (process.env.PORT || 80));
+app.set('port', (process.env.PORT || 3000));
 app.use(cors());
 app.use('/', posts);
 app.get('/', function(req, res) {
