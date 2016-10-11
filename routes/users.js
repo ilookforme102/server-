@@ -1,12 +1,12 @@
 var express         = require('express');
 var router          = express.Router();
-var UserDatabase    = require('../src/UserDatabase');
+var usrdb    = require('../src/usersData');
 var bodyParser      = require('body-parser');
 var randomID        = require('random-id')
 
 router.use(bodyParser.json());
 
-var users = UserDatabase.all();
+var users = usrdb.all();
 function authorization(req, res){
 
     var u = users.find(function(element){
@@ -48,7 +48,7 @@ function register(req, res) {
         console.log(mybody);
         //mybody.push(random_ID());
 
-        UserDatabase.add(mybody);
+        usrdb.add(mybody);
         return res.sendStatus(201);
     }
     else
@@ -58,13 +58,13 @@ function register(req, res) {
 
 }
 function editUserInfo(req, res) {
-    UserDatabase.edit(req.params.id, req.body);
-    console.log(UserDatabase.all());
+    usrdb.edit(req.params.id, req.body);
+    console.log(usrdb.all());
     return res.sendStatus(200);
 }
 
 router.route('/user').get(function(req, res) {
-    res.json(UserDatabase.all());
+    res.json(usrdb.all());
 })
 
 router.route('/login').post(authorization);
