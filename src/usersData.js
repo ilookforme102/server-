@@ -1,12 +1,12 @@
 var users = [{
-        id: "txgw35",
-        username: "test",
-        password: "pwd"
+        id: "1",
+        username: "admin",
+        password: "admin"
     },
     {
-        id: "xvj2f2",
-        username: "john",
-        password: "doe"
+        id: "2",
+        username: "sang",
+        password: "sang"
     }
 ];
 exports.all = function() {
